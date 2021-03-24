@@ -15,5 +15,6 @@ phases:
       - lerna bootstrap
   build:
     commands:
+      - echo Build Start
       - lerna run build --scope=@foo/lambda
 
