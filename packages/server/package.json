@@ -1,5 +1,5 @@
 {
-  "name": "server",
+  "name": "@foo/server",
   "version": "1.0.0",
   "description": "> TODO: description",
   "author": "changhyuni <bhs9610@naver.com>",
@@ -18,10 +18,16 @@
     "url": "git+https://github.com/changhyuni/DevOpsCurriculum.git"
   },
   "scripts": {
+    "build": "docker build -t bhs9610/knowre-quest:quest09 . && docker push bhs9610/knowre-quest:quest09",
+    "start": "node lib/server.js",
     "lint": "npx eslint lib",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "bugs": {
     "url": "https://github.com/changhyuni/DevOpsCurriculum/issues"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
   }
 }

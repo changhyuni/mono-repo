@@ -23,8 +23,5 @@
   },
   "bugs": {
     "url": "https://github.com/changhyuni/DevOpsCurriculum/issues"
-  },
-  "devDependencies": {
-    "eslint": "^7.22.0"
   }
 }

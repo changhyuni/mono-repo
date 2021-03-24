@@ -1,0 +1,13 @@
+   version: 0.2
+
+    phases:
+      install:
+        commands:
+          - echo Installing System Packages
+          - npm install -g yarn
+          - yarn global add lerna
+      pre_build:
+        commands:
+        - echo Bootstrap Source Code
+        - yarn
+        - lerna bootstrap

@@ -8,13 +8,14 @@
     "packages/*"
   ],
   "devDependencies": {
+    "cors": "^2.8.5",
     "eslint": "^7.22.0",
     "express": "^4.17.1",
     "lerna": "^4.0.0"
   },
   "dependencies": {
     "@foo/app": "file:packages/app",
-    "lambda": "file:packages/lambda",
+    "@foo/lambda": "file:packages/lambda",
     "lint": "file:packages/lint",
     "server": "file:packages/server"
   }
