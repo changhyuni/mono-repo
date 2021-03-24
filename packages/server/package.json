@@ -18,7 +18,7 @@
     "url": "git+https://github.com/changhyuni/DevOpsCurriculum.git"
   },
   "scripts": {
-    "build": "docker build -t bhs9610/knowre-quest:quest09 . && docker push bhs9610/knowre-quest:quest09",
+    "build": "docker build -t knowre . && docker tag knowre:latest $ECR/knowre:latest && docker push $ECR/knowre:latest",
     "start": "node lib/server.js",
     "lint": "npx eslint lib",
     "test": "echo \"Error: run tests from root\" && exit 1"
