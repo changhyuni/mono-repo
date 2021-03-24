@@ -3,11 +3,16 @@
     phases:
       install:
         commands:
+          - export ECR=364767759985.dkr.ecr.ap-northeast-2.amazonaws.com
           - echo Installing System Packages
           - npm install -g yarn
           - yarn global add lerna
+          - aws ecr get-login-password --region ap-northeast-2 | docker login --username AWS --password-stdin $ECR/
       pre_build:
         commands:
-        - echo Bootstrap Source Code
-        - yarn
-        - lerna bootstrap
+          - echo Bootstrap Source Code
+          - yarn
+          - lerna bootstrap
+      build:
+        commands:
+          - lerna run build --scope=@foo/lambda
