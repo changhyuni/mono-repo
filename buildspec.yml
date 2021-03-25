@@ -3,6 +3,12 @@ version: 0.2
 phases:
   install:
     commands:
+      # Enabling Docker-in-Docker environment
+      - nohup /usr/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=overlay2&  >/dev/null
+      - timeout 15 sh -c "until docker info; do echo .; sleep 1; done >/dev/null" >/dev/null
+      - docker version
+
+      ## ECR Setting and docker login
       - export ECR=364767759985.dkr.ecr.ap-northeast-2.amazonaws.com
       - echo Installing System Packages
       - npm install -g yarn
