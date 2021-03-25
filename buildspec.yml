@@ -24,7 +24,7 @@ phases:
   build:
     commands:
       - lerna run build
-      - lerna run test
+      - lerna run test --scope=@foo/server
       - lerna run lint
       
 

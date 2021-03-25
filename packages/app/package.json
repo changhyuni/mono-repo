@@ -15,7 +15,7 @@
     "lint": "npx eslint src",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "jest --forceExit",
+    "test": "jest --detectOpenHandles",
     "push": "test"
   },
   "eslintConfig": {
