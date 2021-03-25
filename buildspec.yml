@@ -16,5 +16,8 @@ phases:
   build:
     commands:
       - echo Build Start
-      - lerna run build --scope=@foo/lambda
+      - lerna run build
+      - lerna run test
+      - lerna run lint
+      
 

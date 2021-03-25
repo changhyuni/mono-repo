@@ -14,8 +14,8 @@
   "scripts": {
     "lint": "npx eslint src",
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "build": "yarn build",
+    "test": "jest --forceExit",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -35,5 +35,13 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.13.10",
+    "@babel/plugin-syntax-jsx": "^7.12.13",
+    "@babel/preset-env": "^7.13.12",
+    "@babel/preset-react": "^7.12.13",
+    "babel-jest": "^26.6.3",
+    "babel-preset-env": "^1.7.0"
   }
 }
