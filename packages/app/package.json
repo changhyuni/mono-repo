@@ -14,7 +14,7 @@
   "scripts": {
     "lint": "npx eslint src",
     "start": "react-scripts start",
-    "build": "yarn build",
+    "build": "react-scripts build",
     "test": "jest --forceExit",
     "eject": "react-scripts eject"
   },
