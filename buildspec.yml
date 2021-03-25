@@ -18,13 +18,11 @@ phases:
       - aws ecr get-login-password --region ap-northeast-2 | docker login --username AWS --password-stdin $ECR/
   pre_build:
     commands:
-      - echo Yarn Update & convert lerna
       - yarn
       - lerna bootstarp
       - lerna link convert
   build:
     commands:
-      - echo Build Start
       - lerna run build
       - lerna run test
       - lerna run lint
