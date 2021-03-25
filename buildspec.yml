@@ -1,12 +1,13 @@
 version: 0.2
 
-phases:
+phases: 
   install:
-    commands:
+    runtime-versions:
+        docker: 18     
+    commands: 
       # Enabling Docker-in-Docker environment
-      - nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://127.0.0.1:2375 --storage-driver=overlay2 &
+      - nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://127.0.0.1:2375 --storage-driver=overlay2&
       - timeout 15 sh -c "until docker info; do echo .; sleep 1; done"
-      - docker version
 
       ## Leran install and Yarn environment
       - npm install -g yarn
