@@ -5,23 +5,10 @@
   "author": "changhyuni <bhs9610@naver.com>",
   "homepage": "https://github.com/changhyuni/DevOpsCurriculum#readme",
   "license": "ISC",
-  "main": "lambda.js",
-  "directories": {
-    "lib": "lib"
-  },
-  "files": [
-    "lambda.js"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/changhyuni/DevOpsCurriculum.git"
-  },
+  "main": "index.js",
   "scripts": {
-    "lint": "npx eslint lambda.js",
+    "lint": "npx eslint index.js",
     "build": "npm install --production && rm -rf build && mkdir build && zip -r -q -x='*terraform*' -x='*.md' -x='LICENSE' -x='*build*' -x='*.DS_Store*' -x='*.git*' build/express-like-lambda-example.zip . && du -sh build",
     "push": "aws lambda update-function-code --function-name=knowre-terraform-lambda --zip-file=fileb://build/express-like-lambda-example.zip --region=ap-northeast-2 1> /dev/null"
-  },
-  "bugs": {
-    "url": "https://github.com/changhyuni/DevOpsCurriculum/issues"
   }
 }
