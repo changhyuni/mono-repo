@@ -19,7 +19,8 @@
   },
   "scripts": {
     "lint": "npx eslint lib",
-    "build": "npm install --production && rm -rf build && mkdir build && zip -r -q -x='*terraform*' -x='*.md' -x='LICENSE' -x='*build*' -x='*.DS_Store*' -x='*.git*' build/express-like-lambda-example.zip . && du -sh build"
+    "build": "npm install --production && rm -rf build && mkdir build && zip -r -q -x='*terraform*' -x='*.md' -x='LICENSE' -x='*build*' -x='*.DS_Store*' -x='*.git*' build/express-like-lambda-example.zip . && du -sh build",
+    "push": ""
   },
   "bugs": {
     "url": "https://github.com/changhyuni/DevOpsCurriculum/issues"

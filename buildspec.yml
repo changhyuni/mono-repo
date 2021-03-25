@@ -20,7 +20,7 @@ phases:
     commands:
       - echo Bootstrap Source Code
       - yarn
-      - lerna bootstrap
+      - lerna link convert
   build:
     commands:
       - echo Build Start
