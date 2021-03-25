@@ -19,7 +19,7 @@ phases:
   pre_build:
     commands:
       - yarn
-      - lerna bootstarp
+      - lerna bootstrap
       - lerna link convert
   build:
     commands:
