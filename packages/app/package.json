@@ -16,7 +16,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "jest --detectOpenHandles",
-    "push": "test"
+    "push": "aws s3 sync build s3://knowre-terraform"
   },
   "eslintConfig": {
     "extends": [
