@@ -9,6 +9,6 @@
   "scripts": {
     "lint": "npx eslint index.js",
     "build": "npm install --production && rm -rf build && mkdir build && zip -r -q -x='*terraform*' -x='*.md' -x='LICENSE' -x='*build*' -x='*.DS_Store*' -x='*.git*' build/express-like-lambda-example.zip . && du -sh build",
-    "push": "aws lambda update-function-code --function-name=knowre-terraform-lambda --zip-file=fileb://build/express-like-lambda-example.zip --region=ap-northeast-2 1> /dev/null"
+    "deploy": "aws lambda update-function-code --function-name=knowre-terraform-lambda --zip-file=fileb://build/express-like-lambda-example.zip --region=ap-northeast-2 1> /dev/null"
   }
 }

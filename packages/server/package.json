@@ -20,7 +20,8 @@
     "build": "docker build -t knowre . && docker tag knowre:latest $ECR/knowre:latest && docker push $ECR/knowre:latest",
     "start": "node lib/server.js",
     "lint": "npx eslint lib",
-    "test": "jest --forceExit"
+    "test": "jest --forceExit",
+    "deploy": "aws ecs register-task-definition --cli-input-json file://job.json 1> /dev/null && sleep 15 && aws ecs update-service --cluster knowre-terraform-ecs --service knowre-terraform-ecs --task-definition knowre-terraform:${TASK_REVISION: -3:-1} 1> /dev/null"
   },
   "bugs": {
     "url": "https://github.com/changhyuni/DevOpsCurriculum/issues"

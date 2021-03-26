@@ -5,16 +5,17 @@ phases:
     runtime-versions:
         docker: 18     
     commands: 
-      # Enabling Docker-in-Docker environments
+      # Enabling Docker-in-Docker Environments
       - nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://127.0.0.1:2375 --storage-driver=overlay2&
       - timeout 15 sh -c "until docker info; do echo .; sleep 1; done"
 
-      ## Leran Install and Yarn environment
+      ## Leran Install and Yarn Environment
       - npm install -g yarn
       - yarn global add lerna
 
-      ## ECR Setting and docker login
+      ## Export Setting and Docker Login
       - export ECR=364767759985.dkr.ecr.ap-northeast-2.amazonaws.com
+      - export TASK_REVISION=`aws ecs describe-task-definition --task-definition knowre-terraform | egrep "revision" | tr "/" " " | awk '{print $2}' | sed 's/"$//'`
       - aws ecr get-login-password --region ap-northeast-2 | docker login --username AWS --password-stdin $ECR/
   pre_build:
     commands:
@@ -25,7 +26,7 @@ phases:
     commands:
       - lerna run build
       - lerna run test --scope=@foo/server
-      - lerna run push
+      - lerna run deploy
 
       # Select Options (lint) 
       # - lerna run lint

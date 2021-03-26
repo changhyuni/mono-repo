@@ -1,0 +1,24 @@
+{
+    "family": "knowre-terraform", 
+    "networkMode": "awsvpc", 
+    "containerDefinitions": [
+        {
+            "name": "knowre-terraform-task", 
+            "image": "364767759985.dkr.ecr.ap-northeast-2.amazonaws.com/knowre:latest", 
+            "portMappings": [
+                {
+                    "containerPort": 3001, 
+                    "hostPort": 3001, 
+                    "protocol": "tcp"
+                }
+            ], 
+            "essential": true
+        }
+    ], 
+    "requiresCompatibilities": [
+        "FARGATE"
+    ], 
+    "cpu": "256", 
+    "executionRoleArn": "arn:aws:iam::364767759985:role/terraform-ecsTaskExecutionRole",
+    "memory": "512"
+}
